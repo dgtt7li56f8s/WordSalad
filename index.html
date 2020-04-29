@@ -3,13 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     <title>Document</title>
 </head>
 <body>
-    <input type="text" name="shuffle" id="txtbox">
-    <div id="btn" onclick="tweet()">tweet</div>
+    
+        シャッフルしたい言葉を入力してください。<br>
+        <input type="text" name="shuffle" id="txtbox">
+        <input type="button"value="シャッフルする" onclick="shuffle()" class="btn btn-primary"><br>
+        シャッフル結果はコチラ<br>
+        <input type="text" name="result" id="shuffled"><br>
+        <input type="button" value="シャッフルした結果をツイートする" onclick="tweet()" class="btn btn-link">
+    
+    
     <script>
-        function tweet()
+        var shuffled;
+
+        function shuffle()
         {
             var text = document.getElementById('txtbox').value;
             
@@ -21,8 +32,22 @@
                 txtarray[i] = txtarray[r];
                 txtarray[r] = tmp;
             }
-            var shuffle = txtarray.join('');
-            window.open('https://twitter.com/intent/tweet?text=' + shuffle);
+            shuffled = txtarray.join('');
+            var resultForm = document.getElementById('shuffled');
+            resultForm.value = shuffled;
+        }
+        
+        function tweet()
+        {
+            if(shuffled == undefined)
+            {
+                alert('値が入力されていません');
+            }else
+            {
+                            window.open('https://twitter.com/intent/tweet?text=' + shuffled);
+
+            }
+
         }
     </script>
 </body>
