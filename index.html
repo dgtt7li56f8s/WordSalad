@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="shuffle" id="txtbox">
+    <div id="btn" onclick="tweet()">tweet</div>
+    <script>
+        function tweet()
+        {
+            var text = document.getElementById('txtbox').value;
+            
+            var txtarray =  Array.from(text);
+            for(var i = txtarray.length-1; i > 0; i--)
+            {
+                var r = Math.floor(Math.random() * (i + 1));
+                var tmp = txtarray[i];
+                txtarray[i] = txtarray[r];
+                txtarray[r] = tmp;
+            }
+            var shuffle = txtarray.join('');
+            window.open('https://twitter.com/intent/tweet?text=' + shuffle);
+        }
+    </script>
+</body>
+</html>
