@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Document</title>
+    <title>単語シャッフル</title>
 </head>
 <body>
     
@@ -15,8 +15,11 @@
         シャッフル結果はコチラ<br>
         <input type="text" name="result" id="shuffled"><br>
         <input type="button" value="シャッフルした結果をツイートする" onclick="tweet()" class="btn btn-link">
-    
-    
+
+        <footer>
+            <span style="line-height: 5em;"> このサイトのソースコード：</span><a href="https://github.com/dgtt7li56f8s/WordSalad">github.com/dgtt7li56f8s/WordSalad</a><br>
+        作者：つくもたん(<a href="https://twitter.com/otokura1922" target="_blank">Twitter</a>)
+        </footer>
     <script>
         var shuffled;
 
@@ -44,7 +47,7 @@
                 alert('値が入力されていません');
             }else
             {
-                            window.open('https://twitter.com/intent/tweet?text=' + shuffled);
+                window.open('https://twitter.com/intent/tweet?text=' + shuffled);
 
             }
 
